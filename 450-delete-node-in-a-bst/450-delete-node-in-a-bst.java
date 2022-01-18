@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    public TreeNode getSucc(TreeNode root)
+    public TreeNode getSuccess(TreeNode root)
     {
         TreeNode curr = root.right;
         while(curr != null && curr.left != null)
@@ -23,9 +23,9 @@ class Solution {
     }
     public TreeNode deleteNode(TreeNode root, int key) {
         if(root == null)
-            return null;
-        if(root.val > key)
-            root.left = deleteNode(root.left,key);
+            return root;
+        else if(root.val > key)
+            root.left =  deleteNode(root.left, key);
         else if(root.val < key)
             root.right = deleteNode(root.right,key);
         else
@@ -36,9 +36,9 @@ class Solution {
                 return root.left;
             else
             {
-                TreeNode succ = getSucc(root);
+                TreeNode succ = getSuccess(root);
                 root.val = succ.val;
-                root.right = deleteNode(root.right,succ.val);
+                root.right = deleteNode(root.right, succ.val);
             }
         }
         return root;
