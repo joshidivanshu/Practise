@@ -34,31 +34,20 @@ public class Main {
 class Solution {
     void pushZerosToEnd(int[] arr, int n) {
         // code here
-        int res[] = new int[n];
         int cnt = 0;
-        for(int i=0;i<n;i++)
-        {
-            if(arr[i] == 0)
-                cnt++;
-        }
-        int j = n-1;
-        while(cnt != 0)
-        {
-            res[j--] = 0;
-            cnt--;
-        }
-        int ind = 0;
         for(int i=0;i<n;i++)
         {
             if(arr[i] != 0)
             {
-                res[ind++] = arr[i];
+                arr[cnt] = arr[i];
+                cnt++;
             }
         }
-        for(int i=0;i<n;i++)
+        for(int i=cnt;i<n;i++)
         {
-            arr[i] = res[i];
+            arr[i] = 0;
         }
+        return;
     
     }
 }
