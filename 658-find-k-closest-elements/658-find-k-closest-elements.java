@@ -10,6 +10,7 @@ class Solution {
         }
         
     }
+    //sorting on the basis of decreasing difference between x and the value inside the array.
     class MySort implements Comparator<Pair>{
         public int compare(Pair a1,Pair a2)
             {
@@ -17,6 +18,7 @@ class Solution {
             }
     }
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        //creating a max heap with priority give to max difference between arr[i] & x
         PriorityQueue<Pair> pq = new PriorityQueue<Pair>(new MySort());
         int n = arr.length;
         for(int i=0;i<k;i++)
