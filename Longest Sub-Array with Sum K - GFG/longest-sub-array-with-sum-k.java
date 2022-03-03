@@ -64,7 +64,7 @@ class Solution{
                  
                   // when subarray starts from index '0'
                   if (sum == k)
-                      maxLen = i + 1;
+                      maxLen = Math.max(i + 1, maxLen);
  
                   // make an entry for 'sum' if it is
                   // not present in 'map'
