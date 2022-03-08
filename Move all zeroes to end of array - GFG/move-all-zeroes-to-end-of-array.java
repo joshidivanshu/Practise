@@ -37,31 +37,14 @@ class Solution {
         int cnt = 0;
         for(int i=0;i<n;i++)
         {
-            if(arr[i] == 0)
-            {
-                cnt++;
-            }
-        }
-        int res[] = new int[n];
-        int ind = n-1;
-        while(cnt != 0 && ind >= 0)
-        {
-            res[ind--] = 0;
-            cnt--;
-        }
-        ind = 0;
-        for(int i=0;i<n;i++)
-        {
             if(arr[i] != 0)
             {
-                res[ind++] = arr[i];
+                arr[cnt++] = arr[i];
             }
         }
-        for(int i=0;i<n;i++)
+        while(cnt < n)
         {
-            arr[i] = res[i];
+            arr[cnt++] = 0;
         }
-        return;
-    
     }
 }
