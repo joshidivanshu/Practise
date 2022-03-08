@@ -1,28 +1,29 @@
 class Solution {
-    public int search(int[] a, int target) {
-        int low = 0, high = a.length - 1; 
-        while(low <= high) {
-            int mid = (low + high) >> 1; 
-            if(a[mid] == target) return mid; 
-            
-            // the left side is sorted
-            if(a[low] <= a[mid]) {
-                if(target >= a[low] && target <= a[mid]) {
-                    high = mid - 1; 
-                }
-                else {
-                    low = mid + 1; 
-                }
+    public int search(int[] arr, int target) {
+        int l = 0;
+        int h = arr.length-1;
+        while(l<=h)
+        {
+            int mid = l+(h-l)/2;
+            if(arr[mid] == target)
+                return mid;
+            if(arr[l] <= arr[mid])
+            {
+                if(target >= arr[l] && target <= arr[mid])
+                    h = mid-1;
+                else
+                    l = mid+1;
             }
-            else {
-                if(target >= a[mid] && target <= a[high]) {
-                    low = mid + 1; 
+            else
+            {
+                if(target >= arr[mid] && target <= arr[h])
+                {
+                    l = mid+1;
                 }
-                else {
-                    high = mid - 1; 
-                }
+                else
+                    h = mid-1;
             }
-        } 
-        return -1; 
+        }
+        return -1;
     }
 }
