@@ -133,6 +133,6 @@ class Solution
 	        lsum += sum(root.left);
 	    if(root.right != null)
 	        rsum += sum(root.right);
-	    return root.data == lsum+rsum && isSumTree(root.left) && isSumTree(root.right);     
+	    return root.data == lsum+rsum && isSumTree(root.left) && isSumTree(root.right);      
 	}
 }
