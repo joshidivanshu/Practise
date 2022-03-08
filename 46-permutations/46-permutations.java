@@ -3,10 +3,11 @@ class Solution {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         int n = nums.length;
         List<Integer> path = new ArrayList<Integer>();
-        backtrack(res,path,nums);
+        boolean[] visited = new boolean[n];
+        dfs(res,path,nums,visited);
         return res;
     }
-    public void backtrack(List<List<Integer>> res, List<Integer> path, int[] nums)
+    public void dfs(List<List<Integer>> res, List<Integer> path, int[] nums, boolean[] visited)
     {
         if(path.size() == nums.length)
         {
@@ -15,11 +16,13 @@ class Solution {
         }
         for(int i=0;i<nums.length;i++)
         {
-            if(path.contains(nums[i]))
+            if(visited[i])
                 continue;
+            visited[i] = true;
             path.add(nums[i]);
-            backtrack(res,path,nums);
+            dfs(res,path,nums,visited);
             path.remove(path.size()-1);
+            visited[i] = false;
         }
     }
 }
