@@ -48,9 +48,9 @@ class Solution
     {
         // add your code here
         Arrays.sort(arr);
-    	Arrays.sort(dep);
-    	int res = 1, curr = 1, i = 1, j= 0;
-    	while(i<n && j<n)
+        Arrays.sort(dep);
+        int res = 1, curr = 1, i =1 ,j = 0;
+        while(i<n && j<n)
         {
             if(arr[i] <= dep[j])
             {
@@ -62,7 +62,7 @@ class Solution
                 curr--;
                 j++;
             }
-            res = Math.max(res,curr);
+            res = Math.max(res, curr);
         }
         return res;
         
