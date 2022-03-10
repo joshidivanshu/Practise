@@ -131,6 +131,8 @@ class Solution
     int findMaxSum(Node node)
     {
         //your code goes here
+        if(node == null)
+            return 0;
         fun(node);
         return res;
     }
