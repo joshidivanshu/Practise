@@ -1,19 +1,22 @@
 class Solution {
+    public void swap(int[] nums, int f, int s)
+    {
+        int temp = nums[f];
+        nums[f] = nums[s];
+        nums[s] = temp;
+    }
     public int missingNumber(int[] arr) {
-        // using bit manipulation 
-        // int res = 0;
-        // int n = nums.length;
-        // for(int i=0;i<n;i++)
-        // {
-        //     res = res^nums[i];   
-        // }
-        // for(int i=0;i<=n;i++)
-        // {
-        //     res = res^i;
-        // }
-        // return res;
-        
-        // using cycle sort
+        /*int n = nums.length;
+        int res = 0;
+        for(int i=0;i<n;i++)
+        {
+            res = res^nums[i];
+        }
+        for(int i=0;i<=n;i++)
+        {
+            res = res^i;
+        }
+        return res;*/
         int n = arr.length;
         int i = 0;
         while(i<n)
@@ -34,11 +37,5 @@ class Solution {
                 return j;
         }
         return n;
-    }
-    public void swap(int arr[],int f,int s)
-    {
-        int temp = arr[f];
-        arr[f] = arr[s];
-        arr[s] = temp;
     }
 }
