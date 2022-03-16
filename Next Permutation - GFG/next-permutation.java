@@ -31,13 +31,13 @@ class GFG{
 // User function Template for Java
 
 class Solution{
-    public static void swap(int arr[], int f, int s)
+    static void swap(int arr[], int f, int s)
     {
         int temp = arr[f];
         arr[f] = arr[s];
         arr[s] = temp;
     }
-    public static void reverse(int arr[], int l, int h)
+    static void reverse(int arr[],int l,int h)
     {
         while(l<h)
         {
@@ -52,19 +52,20 @@ class Solution{
         // code here
         List<Integer> res = new ArrayList<Integer>();
         int i = n-2;
-        while(i >=0 && arr[i] >= arr[i+1])
+        while(i>=0 && arr[i] >= arr[i+1])
             i--;
         if(i >= 0)
         {
             int j = n-1;
             while(j>=0 && arr[j] <= arr[i])
                 j--;
-            swap(arr, i ,j);    
+            swap(arr, i , j);    
         }
-        reverse(arr,i+1,n-1);
+        reverse(arr, i+1, n-1);
         for(int k=0;k<n;k++)
+        {
             res.add(arr[k]);
-        return res;    
-        
+        }
+        return res;
     }
 }
