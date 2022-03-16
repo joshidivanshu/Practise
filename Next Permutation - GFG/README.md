@@ -1,5 +1,5 @@
 # Next Permutation
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Implement the next permutation, which rearranges the list of numbers into Lexicographically next greater permutation of list of&nbsp;numbers. If such arrangement is not possible, it must be rearranged to the lowest possible order <em>i.e.</em>&nbsp;sorted in an ascending order. You are given an list of numbers <strong>arr[ ]</strong> of size <strong>N</strong>.</span></p>
 
