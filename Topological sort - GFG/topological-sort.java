@@ -67,7 +67,7 @@ class Solution
         int indegree[] = new int[v];
         for(int i=0;i<v;i++)
         {
-            for(int k : adj.get(i))
+            for(int k: adj.get(i) ) 
             {
                 indegree[k]++;
             }
@@ -76,9 +76,7 @@ class Solution
         for(int i=0;i<v;i++)
         {
             if(indegree[i] == 0)
-            {
                 q.add(i);
-            }
         }
         int ind = 0;
         while(!q.isEmpty())
@@ -89,9 +87,10 @@ class Solution
             {
                 indegree[k]--;
                 if(indegree[k] == 0)
-                    q.add(k);
+                     q.add(k);
             }
         }
         return top;
+        
     }
 }
