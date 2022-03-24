@@ -179,7 +179,7 @@ class GfG {
 
 class Solution
 {
-    //Function to fix a given BST where two nodes are swapped.
+    //Function to fix a given BST where two nodes are swapped.  
     Node prev = null;
     Node first = null;
     Node middle = null;
