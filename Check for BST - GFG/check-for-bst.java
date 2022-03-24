@@ -115,19 +115,19 @@ class GfG {
 public class Solution
 {
     //Function to check whether a Binary Tree is BST or not.
-    boolean fun(Node root,int min,int max)
+    boolean fun(Node root,int max,int min)
     {
         if(root == null)
             return true;
         if(root.data <= min || root.data >= max)
             return false;
-        return fun(root.left,min,root.data) && fun(root.right,root.data,max);    
+        return fun(root.left,root.data,min) && fun(root.right,max,root.data);
     }
     boolean isBST(Node root)
     {
         // code here.
         if(root == null)
             return true;
-        return fun(root,Integer.MIN_VALUE, Integer.MAX_VALUE);    
+        return fun(root,Integer.MAX_VALUE,Integer.MIN_VALUE);    
     }
 }
