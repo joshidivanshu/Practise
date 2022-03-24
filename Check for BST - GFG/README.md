@@ -1,5 +1,5 @@
 # Check for BST
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given the root of a&nbsp;binary tree. Check whether it is a BST or not.<br>
 <strong>Note: </strong>We are considering that BSTs can not contain duplicate Nodes.</span><br>
