@@ -9,7 +9,7 @@ class Solution {
             int cnt = 0;
             for(int j=0;j<n;j++)
             {
-                if((arr[j]&x) != 0)
+                if((arr[j] & x) != 0)
                 {
                     cnt++;
                 }
