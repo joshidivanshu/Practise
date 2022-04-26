@@ -11,7 +11,7 @@ class Solution(object):
         :rtype: ListNode
         """
         carry = 0
-        dummy = cur = ListNode(0)
+        dummy = curr = ListNode(0)
         while l1 or l2 or carry:
             if l1:
                 carry += l1.val
@@ -19,10 +19,9 @@ class Solution(object):
             if l2:
                 carry += l2.val
                 l2 = l2.next
-            cur.next = ListNode(carry%10)
-            cur = cur.next
+            curr.next = ListNode(carry%10)
+            curr = curr.next
             carry = carry//10
         return dummy.next    
-                
             
         
