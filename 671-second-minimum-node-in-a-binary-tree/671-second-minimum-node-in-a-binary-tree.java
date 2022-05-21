@@ -14,29 +14,27 @@
  * }
  */
 class Solution {
-    TreeSet<Integer> res = new TreeSet<Integer>();
-    void inorder(TreeNode root)
-    {
-        if(root != null)
-        {
-            inorder(root.left);
-            res.add(root.val);
-            inorder(root.right);
-        }
-    }
+    int min = Integer.MAX_VALUE;
+    int secondMin = Integer.MAX_VALUE;
+    boolean found = false;
     public int findSecondMinimumValue(TreeNode root) {
-        res.clear();
         if(root == null)
             return -1;
-        inorder(root);
-        int i = 0;
-        for(int val : res)
-        {
-            i++;
-            if(i == 2)
-                return val;
-        }
-        return -1;
         
+        if(root.val < min)
+        {
+            min = root.val;
+        }
+        
+        if(root.val > min && root.val <= secondMin)
+        {
+            secondMin = root.val;
+            found = true;
+        }
+        
+        findSecondMinimumValue(root.left);
+        findSecondMinimumValue(root.right);
+        
+        return (!found) ? -1 : secondMin;
     }
 }
