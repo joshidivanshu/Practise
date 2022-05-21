@@ -30,17 +30,15 @@ public class GFG {
 //User function Template for Java
 
 class Solution {
-    int remove_duplicate(int arr[],int N){
+    int remove_duplicate(int arr[],int n){
         // code here
-        int res[] = new int[N];
+        int res[] = new int[n];
         res[0] = arr[0];
         int temp = 1;
-        for(int i=1;i<N;i++)
+        for(int i=1;i<n;i++)
         {
-            if(res[temp-1] != arr[i])
-            {
+            if(res[temp-1 ] != arr[i] )
                 res[temp++] = arr[i];
-            }
         }
         for(int i=0;i<temp;i++)
         {
