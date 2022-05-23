@@ -39,22 +39,19 @@ class gfg
 class Solution
 {
     //Function to calculate the span of stockâ€™s price for all n days.
-    public static int[] calculateSpan(int price[], int n)
+    public static int[] calculateSpan(int arr[], int n)
     {
         // Your code here
-        Stack<Integer> st = new Stack<Integer>();
         int res[] = new int[n];
-        int cnt = 0;
+        Stack<Integer> st = new Stack<>();
         st.push(0);
-        res[cnt++] = 1;
+        res[0] = 1;
         for(int i=1;i<n;i++)
         {
-            while(!st.isEmpty() && price[st.peek()] <=  price[i])
-            {
+            while(!st.isEmpty() && arr[st.peek()] <= arr[i])
                 st.pop();
-            }
-            int val = st.isEmpty() ? i+1 : i-st.peek();
-            res[cnt++] = val;
+            int span = (st.isEmpty()) ? i+1 : i-st.peek();
+            res[i] = span;
             st.push(i);
         }
         return res;
