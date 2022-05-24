@@ -15,26 +15,24 @@
  */
 class Solution {
     int min = Integer.MAX_VALUE;
-    int secondMin = Integer.MAX_VALUE;
+    int smin = Integer.MAX_VALUE;
     boolean found = false;
     public int findSecondMinimumValue(TreeNode root) {
         if(root == null)
             return -1;
-        
         if(root.val < min)
         {
             min = root.val;
         }
         
-        if(root.val > min && root.val <= secondMin)
+        if(root.val > min && root.val <= smin)
         {
-            secondMin = root.val;
+            smin = root.val;
             found = true;
         }
-        
         findSecondMinimumValue(root.left);
         findSecondMinimumValue(root.right);
         
-        return (!found) ? -1 : secondMin;
+        return (found == true) ? smin : -1;
     }
 }
