@@ -65,11 +65,11 @@ class Solution
         // add your code here
         int top[] = new int[v];
         int indegree[] = new int[v];
-        for(int i=0;i<v;i++)
+        for(ArrayList<Integer> temp : adj)
         {
-            for(int k: adj.get(i) ) 
+            for(int x : temp)
             {
-                indegree[k]++;
+                indegree[x]++;
             }
         }
         Queue<Integer> q = new LinkedList<Integer>();
@@ -78,19 +78,18 @@ class Solution
             if(indegree[i] == 0)
                 q.add(i);
         }
-        int ind = 0;
+        int indx = 0;
         while(!q.isEmpty())
         {
-            Integer node = q.poll();
-            top[ind++] = node;
-            for(int k : adj.get(node))
+            int u = q.poll();
+            top[indx++] = u;
+            for(int x : adj.get(u))
             {
-                indegree[k]--;
-                if(indegree[k] == 0)
-                     q.add(k);
+                indegree[x]--;
+                if(indegree[x] == 0)
+                    q.add(x);
             }
         }
         return top;
-        
     }
 }
