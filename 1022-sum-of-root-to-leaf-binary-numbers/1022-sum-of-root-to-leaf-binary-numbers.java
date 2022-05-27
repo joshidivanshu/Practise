@@ -14,21 +14,25 @@
  * }
  */
 class Solution {
-    public int fun(TreeNode root, int sum)
+    int res = 0;
+    public void fun(TreeNode root, int sum)
     {
-        if(root == null)
-            return 0;
-        sum = sum*2+root.val;
-        int res = 0;
-        res += fun(root.left, sum);
-        res += fun(root.right, sum);
-        
-        if(root.left == null && root.right == null)
-            return sum;
-        return res;
+        if(root != null)
+        {
+            if(root.left == null && root.right == null)
+            {
+                sum = sum*2+root.val;
+                res += sum;
+                return;
+            }
+            sum = sum*2+root.val;
+            fun(root.left, sum);
+            fun(root.right, sum);
+        }
     }
     public int sumRootToLeaf(TreeNode root) {
-        int res = fun(root,0);
+        res = 0;
+        fun(root,0);
         return res;
     }
 }
