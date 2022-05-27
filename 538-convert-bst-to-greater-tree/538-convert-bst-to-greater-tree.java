@@ -15,19 +15,20 @@
  */
 class Solution {
     int sum = 0;
-    public void postOrder(TreeNode root)
+    public void fun(TreeNode root)
     {
         if(root != null)
         {
-            postOrder(root.right);
+            fun(root.right);
             sum += root.val;
             root.val = sum;
-            postOrder(root.left);
+            fun(root.left);
         }
     }
     public TreeNode convertBST(TreeNode root) {
         sum = 0;
-        postOrder(root);
+        fun(root);
         return root;
+        
     }
 }
