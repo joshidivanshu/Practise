@@ -29,6 +29,8 @@ class Solution {
         }
     }
     public int goodNodes(TreeNode root) {
+        if(root == null)
+            return 0;
         cnt = 0;
         fun(root,root.val);
         return cnt;
