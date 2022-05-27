@@ -14,14 +14,15 @@
  * }
  */
 class Solution {
-    int fun(TreeNode root, int sum)
+    public int fun(TreeNode root, int sum)
     {
         if(root == null)
             return 0;
-        int res = 0;
         sum = sum*2+root.val;
+        int res = 0;
         res += fun(root.left, sum);
         res += fun(root.right, sum);
+        
         if(root.left == null && root.right == null)
             return sum;
         return res;
