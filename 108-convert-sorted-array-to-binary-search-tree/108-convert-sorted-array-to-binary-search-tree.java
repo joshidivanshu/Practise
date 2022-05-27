@@ -27,6 +27,6 @@ class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
         if(nums.length == 0)
             return null;
-        return fun(nums,0,nums.length-1);
+        return fun(nums, 0 , nums.length-1);
     }
 }
