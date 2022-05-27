@@ -14,8 +14,7 @@
  * }
  */
 class Solution {
-    
-    int fun(TreeNode root,int max,int min)
+    public int fun(TreeNode root,int max, int min)
     {
         if(root == null)
             return max-min;
@@ -23,13 +22,13 @@ class Solution {
         if(root.val > max)
             max = root.val;
         if(root.val < min)
-            min = root.val;
+             min = root.val;
+        return Math.max(fun(root.left,max,min), fun(root.right,max,min));
         
-        return Math.max(fun(root.left, max, min),fun(root.right,max,min));
     }
     public int maxAncestorDiff(TreeNode root) {
         if(root == null)
             return 0;
-        return fun(root, root.val, root.val);
+        return fun(root, root.val,root.val);
     }
 }
