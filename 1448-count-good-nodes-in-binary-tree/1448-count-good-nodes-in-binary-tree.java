@@ -15,24 +15,24 @@
  */
 class Solution {
     int cnt = 0;
-    public void fun(TreeNode root, int max)
+    public void preOrder(TreeNode root,int max)
     {
         if(root != null)
         {
             if(root.val >= max)
             {
                 cnt++;
-                max = Math.max(root.val, max);
+                max = Math.max(root.val,max);
             }
-            fun(root.left, max);
-            fun(root.right,max);
+            preOrder(root.left, max);
+            preOrder(root.right,max);
         }
     }
     public int goodNodes(TreeNode root) {
+        cnt = 0;
         if(root == null)
             return 0;
-        cnt = 0;
-        fun(root,root.val);
+        preOrder(root,root.val);
         return cnt;
     }
 }
