@@ -2,7 +2,7 @@ class Solution {
     int res = 0;
     public int maxLength(List<String> arr) {
         res = 0;
-        maxUtil(arr, 0,"");
+        maxUtil(arr,0,"");
         return res;
     }
     public int uniqueChars(String s)
@@ -16,7 +16,7 @@ class Solution {
         }
         return s.length();
     }
-    public void maxUtil(List<String> arr, int index, String curr)
+    public void maxUtil(List<String> arr,int index, String curr)
     {
         if(index == arr.size() && uniqueChars(curr) > res)
         {
