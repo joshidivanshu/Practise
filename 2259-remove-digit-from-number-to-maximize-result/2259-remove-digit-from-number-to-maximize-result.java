@@ -1,15 +1,18 @@
 class Solution {
     public String removeDigit(String number, char digit) {
-        List<String> res = new ArrayList<String>();
+        String res = "";
         int n = number.length();
-        for(int i=0;i<n;i++)
+        int i = 1;
+        for(;i<n;i++)
         {
-            if(number.charAt(i) == digit)
+            if(number.charAt(i-1) == digit)
             {
-                res.add(number.substring(0,i)+number.substring(i+1));
+                if(number.charAt(i) > number.charAt(i-1))
+                    return number.substring(0,i-1)+number.substring(i);
             }
         }
-        Collections.sort(res);
-        return res.get(res.size()-1);
+        
+        int lastIndex = number.lastIndexOf(digit);
+        return number.substring(0,lastIndex)+number.substring(lastIndex+1);
     }
 }
