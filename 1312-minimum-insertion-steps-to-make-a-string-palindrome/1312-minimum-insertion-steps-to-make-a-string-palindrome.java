@@ -1,10 +1,6 @@
 class Solution {
     public int lps(String s)
     {
-        if(s.length() == 0)
-            return 0;
-        if(s.length() == 1)
-            return 1;
         int n = s.length();
         StringBuilder s1 = new StringBuilder(s);
         s1 = s1.reverse();
@@ -17,16 +13,17 @@ class Solution {
                 if(s.charAt(i-1) == s2.charAt(j-1))
                     dp[i][j] = 1+dp[i-1][j-1];
                 else
-                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]); 
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
             }
         }
         return dp[n][n];
+        
     }
     public int minInsertions(String s) {
-        int n = s.length();
-        if(n == 0 || n == 1)
+        if(s.length() == 0 || s.length() == 1)
             return 0;
         int dist = lps(s);
-        return n-dist;
+        return s.length()-dist;
+            
     }
 }
