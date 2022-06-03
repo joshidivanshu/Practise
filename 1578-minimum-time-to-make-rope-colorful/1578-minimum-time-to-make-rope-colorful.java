@@ -1,15 +1,29 @@
 class Solution {
     public int minCost(String colors, int[] neededTime) {
+        char prev_char = '*';
+        int ans = 0;
+        int costp = 0;
         int n = colors.length();
-        int res = 0;
-        for(int i=1;i<n;i++)
+        for(int i=0;i<n;i++)
         {
-            if(colors.charAt(i) == colors.charAt(i-1))
+            if(colors.charAt(i) == prev_char)
             {
-                res += Math.min(neededTime[i], neededTime[i-1]);
-                neededTime[i] = Math.max(neededTime[i], neededTime[i-1]);
+                if(costp < neededTime[i])
+                {
+                    ans += costp;
+                    costp = neededTime[i];
+                }
+                else
+                {
+                    ans += neededTime[i];
+                }
+            }
+            else
+            {
+                prev_char = colors.charAt(i);
+                costp = neededTime[i];
             }
         }
-        return res;
+        return ans;
     }
 }
