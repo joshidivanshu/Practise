@@ -65,9 +65,9 @@ class Solution
         // add your code here
         int top[] = new int[v];
         int indegree[] = new int[v];
-        for(ArrayList<Integer> temp : adj)
+        for(int i=0;i<v;i++)
         {
-            for(int x : temp)
+            for(int x : adj.get(i))
             {
                 indegree[x]++;
             }
@@ -76,7 +76,9 @@ class Solution
         for(int i=0;i<v;i++)
         {
             if(indegree[i] == 0)
+            {
                 q.add(i);
+            }
         }
         int indx = 0;
         while(!q.isEmpty())
