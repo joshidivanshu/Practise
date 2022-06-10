@@ -1,5 +1,5 @@
 # Leaves to DLL
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a Binary Tree of size N, extract all its leaf nodes to form a Doubly Link List starting from the left most leaf. Modify the original tree to make the DLL thus removing the leaf nodes from the tree. Consider the left and right pointers of the tree to be the previous and next pointer of the DLL respectively.</span></p>
 
