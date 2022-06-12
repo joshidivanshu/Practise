@@ -21,7 +21,7 @@ class Solution {
         {
             ans = 1.0/ans;
         }
+            
         return ans;
-        
     }
 }
