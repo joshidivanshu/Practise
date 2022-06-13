@@ -1,40 +1,37 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        Set<List<Integer>> hs = new HashSet<List<Integer>>();
-        Arrays.sort(nums);
         int n = nums.length;
-        for(int i=0;i<n;i++)
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        for(int i=0;i<n-2;i++)
         {
-            int l = i+1;
-            int h = n-1;
-            while(l<h)
+            if(i == 0 || (i > 0 && nums[i] != nums[i-1]))
             {
-                if(nums[l]+nums[h]+nums[i] == 0)
+                int l = i+1;
+                int h = n-1;
+                while(l<h)
                 {
-                    List<Integer> arr = new ArrayList<Integer>();
-                    arr.add(nums[l]);
-                    arr.add(nums[h]);
-                    arr.add(nums[i]);
-                    hs.add(new ArrayList<Integer>(arr));
-                    l++;
-                    h--;
-                }
-                else if(nums[l]+nums[h]+nums[i] < 0)
-                {
-                    l++;
-                }
-                else
-                {
-                    h--;
+                    if(nums[i]+nums[l]+nums[h] == 0)
+                    {
+                        res.add(Arrays.asList(nums[i],nums[l],nums[h]));
+                        while(l<h && nums[l] == nums[l+1])
+                            l++;
+                        while(h>l && nums[h-1] == nums[h])
+                            h--;
+                        l++;
+                        h--;
+                    }
+                    else if(nums[i]+nums[l]+nums[h] < 0)
+                    {
+                        l++;
+                    }
+                    else
+                    {
+                        h--;
+                    }
                 }
             }
         }
-        for(List<Integer> temp : hs)
-        {
-            res.add(new ArrayList<Integer>(temp));
-        }
         return res;
-        
     }
 }
