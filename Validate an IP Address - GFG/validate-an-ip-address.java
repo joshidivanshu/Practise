@@ -34,7 +34,6 @@ class Solution {
 	try {
 		int parsedInt = Integer.parseInt(token);
 		if(parsedInt<0 || parsedInt>255) return false;
-// 		if(parsedInt==0 && token.charAt(0)!='0') return false;
 	} catch(NumberFormatException nfe) {
 		return false;
 	}
